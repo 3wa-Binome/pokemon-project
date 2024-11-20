@@ -1,0 +1,22 @@
+.pokemon-card {
+    width: 100%;
+    max-width: 360px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .pokemon-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+  }
+  
+  .pokemon-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  .pokemon-card:hover img {
+    transform: scale(1.05);
+  }
+  

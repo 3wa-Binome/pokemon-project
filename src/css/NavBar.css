@@ -1,0 +1,42 @@
+/* Conteneur de la barre de navigation */
+nav {
+    background-color: #2c3e50; /* Couleur de fond sombre */
+    padding: 10px 20px; /* Espacement intérieur */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombre pour un effet flottant */
+  }
+  
+  /* Liste horizontale de liens */
+  nav ul {
+    display: flex;
+    justify-content: center; /* Centre les éléments horizontalement */
+    list-style: none; /* Retire les puces des éléments de liste */
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Élément de la liste (li) */
+  nav li {
+    margin: 0 15px; /* Espacement entre les éléments */
+  }
+  
+  /* Liens de navigation */
+  nav a {
+    text-decoration: none; /* Supprime la sous-ligne par défaut */
+    color: #ecf0f1; /* Couleur des liens */
+    font-size: 18px; /* Taille de la police */
+    font-weight: bold; /* Met en gras le texte */
+    transition: color 0.3s ease, transform 0.2s ease; /* Transition douce pour le survol */
+  }
+  
+  /* Effet au survol des liens */
+  nav a:hover {
+    color: #f39c12; /* Couleur jaune-orange au survol */
+    transform: scale(1.1); /* Légère augmentation de la taille */
+  }
+  
+  /* État actif pour le lien */
+  nav a.active {
+    color: #e74c3c; /* Rouge pour le lien actif */
+    font-size: 20px; /* Augmentation de la taille du lien actif */
+  }
+  
