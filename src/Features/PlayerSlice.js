@@ -7,10 +7,20 @@ const playerSlice = createSlice({
   },
   reducers: {
     addPlayer(state, action) {
-      state.players.push(action.payload); // payload = { id, name, averageForce }
+      const {id, name } = action.payload
+      const averageForce = 0;
+      state.players.push({id, name, averageForce}); // payload = { id, name, averageForce }
+    },
+    updateAverageForce(state, action) {
+      const { id, averageForce } = action.payload;
+      const player = state.players.find((player) => player.playerId === id);
+
+      if (player) {
+          player.averageForce = averageForce;
+      }
     },
   },
 });
 
-export const { addPlayer } = playerSlice.actions;
+export const { addPlayer, updateAverageForce } = playerSlice.actions;
 export default playerSlice.reducer;
