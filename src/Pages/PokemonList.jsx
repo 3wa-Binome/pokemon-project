@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchPokemonCards } from "../Features/PokemonSlice";
+import { fetchPokemonCards } from "../Features/PokemonCardSlice";
 import PokemonCard from "../Components/PokemonCard";
 import "../css/PokemonList.css";
 
