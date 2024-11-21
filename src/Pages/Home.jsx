@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { addPlayer } from "../Features/PlayerSlice";
 import { Link } from "react-router-dom";
 import { setPhase } from "../Features/GameSlice";
+import "../css/Home.css";
 
 const Home = () => {
   const dispatch = useDispatch()
@@ -26,7 +27,7 @@ const Home = () => {
   }
 
   return (
-    <div>
+    <div className="home-page">
       {
         action === 'begin' ?
           <>
@@ -52,7 +53,7 @@ const Home = () => {
 
           <>
             <h1>Il va maintenant falloir choisir vos pokemons!</h1>
-            {/* <Link to='/pokemon-list'>Suivant</Link> */}
+            <Link to='/pokemon-list'>Suivant</Link>
           </>
         : <></>
       }
