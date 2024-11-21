@@ -29,14 +29,14 @@ const pokemonSlice = createSlice({
             pokemon.isAlive = isAlive;
         }
     },
-    updatePokemonHp(state, action) {
-        const { id: pokemonId, playerId, hpChange } = action.payload;
-        const pokemon = state.pokemons.find((pokemon) => pokemon.pokemonId === pokemonId && pokemon.playerId === playerId);
+    // updatePokemonHp(state, action) {
+    //     const { id: pokemonId, playerId, hpChange } = action.payload;
+    //     const pokemon = state.pokemons.find((pokemon) => pokemon.pokemonId === pokemonId && pokemon.playerId === playerId);
 
-        if (pokemon) {
-            pokemon.stats.hp += hpChange;
-        }
-    },
+    //     if (pokemon) {
+    //         pokemon.stats.hp += hpChange;
+    //     }
+    // },
   },
 });
 
