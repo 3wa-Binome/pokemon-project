@@ -52,7 +52,7 @@ const Home = () => {
 
           <>
             <h1>Il va maintenant falloir choisir vos pokemons!</h1>
-            <Link to='/pokemon-list'>Suivant</Link>
+            {/* <Link to='/pokemon-list'>Suivant</Link> */}
           </>
         : <></>
       }

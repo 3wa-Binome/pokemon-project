@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import "../css/PokemonCardDetail.css";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {addCard} from "../Features/DeckSlice";
 
 const PokemonCardDetail = () => {
   const { id } = useParams();
   const [pokemonDetails, setPokemonDetails] = useState(null);
   const [loading, setLoading] = useState(false);
+  const gamePhase = useSelector((state) => state.game.phase);
 
   const dispatch = useDispatch();
 
@@ -34,6 +35,10 @@ const PokemonCardDetail = () => {
   };
 
   if (loading) return <p>Chargement...</p>;
+
+  if (gamePhase !== 'card-selecting') {
+    return <><h1>Veuillez démarrer la partie</h1><Link to='/'>Démarrer</Link></>
+  }
 
   
   return (

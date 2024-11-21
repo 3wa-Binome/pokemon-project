@@ -28,8 +28,8 @@ const gameSlice = createSlice({
       state.nbOfPlayerWhoPlayedOnTheTurn += 1;
     },
     resetBattle(state) {
-      state.phase = 'selecting';
-    }
+      state.phase = 'name-selecting';
+    },
   },
 });
 

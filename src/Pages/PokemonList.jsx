@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import { fetchPokemonCards } from "../Features/PokemonCardSlice";
 import AllPokemonCard from "../Components/AllPokemonCard";
 import "../css/PokemonList.css";
@@ -7,7 +8,8 @@ import "../css/PokemonList.css";
 function PokemonList() {
   const dispatch = useDispatch();
   const { cards, status, error } = useSelector((state) => state.pokemonCards);
-  const { players } = useSelector((state) => state.player)
+  const { players } = useSelector((state) => state.player);
+  const gamePhase = useSelector((state) => state.game.phase);
 
   console.log(players)
 
@@ -23,6 +25,10 @@ function PokemonList() {
 
   if (status === "failed") {
     return <p>Erreur : {error}</p>;
+  }
+
+  if (gamePhase !== 'card-selecting') {
+    return <><h1>Veuillez démarrer la partie</h1><Link to='/'>Démarrer</Link></>
   }
 
   return (
