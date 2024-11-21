@@ -15,6 +15,9 @@ Bienvenue dans le **Pokémon Project**, une application web interactive conçue 
 ## 🚀 Fonctionnalités
 
 - **Liste des Pokémon** : Parcourez une liste de Pokémon avec des détails interactifs.
+- **Player** : Choisissez 2 pseudonymes de joueurs.
+- **Deck** : Choisissez votre deck et préparez-vous à vous lancer dans la bataille.
+- **Combat** : Combattez avec votre ami en incarnant les joueurs que vous avez créés, avec les decks que vous avez choisis.
 - **Gestion d'état global** : Utilisation de Redux pour gérer l'état de l'application.
 - **Navigation dynamique** : Routes dynamiques configurées avec React Router.
 - **Design réactif** : Adapté aux mobiles, tablettes et ordinateurs.
@@ -32,3 +35,23 @@ Bienvenue dans le **Pokémon Project**, une application web interactive conçue 
 - **[GitHub Pages](https://pages.github.com/)** : Pour héberger et déployer l'application.
 
 ---
+
+## 📂 Structure du projet
+
+Voici un aperçu de l'arborescence du projet :
+
+```plaintext
+pokemon-project/
+├── public/               # Fichiers publics (favicon, etc.)
+├── src/
+│   ├── Components/       # Composants réutilisables
+│   ├── css/              # Feuille de style css
+│   ├── Features/         # Slices
+│   ├── pages/            # Pages principales
+│   ├── App/              # Store Redux
+│   ├── App.jsx           # Composant des routes
+│   └── index.jsx         # Point d'entrée de l'application
+├── .gitignore            # Fichiers à ignorer par Git
+├── package.json          # Dépendances et scripts npm
+├── vite.config.js        # Configuration de Vite
+└── README.md             # Documentation du projet
