@@ -32,11 +32,3 @@ Bienvenue dans le **Pokémon Project**, une application web interactive conçue 
 - **[GitHub Pages](https://pages.github.com/)** : Pour héberger et déployer l'application.
 
 ---
-
-## ⚙️ Installation et utilisation
-
-### Prérequis
-- Node.js (v16 ou supérieur)
-- npm ou yarn installé
-
-### Étapes pour démarrer
