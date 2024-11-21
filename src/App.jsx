@@ -4,6 +4,7 @@ import Home from "./Pages/Home";
 import PokemonList from "./Pages/PokemonList";
 import { Provider } from "react-redux";
 import { store } from "./App/store";
+import { Battle } from "./Pages/Battle";
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/pokemon-list" element={<PokemonList />} />
+          <Route path="/battle" element={<Battle />} />
         </Routes>
       </Router>
     </Provider>

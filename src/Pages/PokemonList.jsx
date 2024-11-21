@@ -6,7 +6,7 @@ import "../css/PokemonList.css";
 
 function PokemonList() {
   const dispatch = useDispatch();
-  const { cards, status, error } = useSelector((state) => state.pokemon);
+  const { cards, status, error } = useSelector((state) => state.pokemonCards);
 
   useEffect(() => {
     if (status === "idle") {

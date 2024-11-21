@@ -1,6 +1,10 @@
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 import "../css/NavBar.css";
-const NavBar = () => {
+
+export const NavBar = () => {
+  const stateOfGame = useSelector((state) => state.game.phase);
+
   return (
     <nav>
       <ul>
@@ -9,6 +13,7 @@ const NavBar = () => {
         </li>
         <li>
           <Link to="/pokemon-list">Pokémon List</Link>
+          {stateOfGame === 'battle' ? <Link to="/battle">Bataille</Link> : null}
         </li>
       </ul>
     </nav>

@@ -16,8 +16,8 @@ export const fetchPokemonCards = createAsyncThunk(
   }
 );
 
-const pokemonSlice = createSlice({
-  name: "pokemon",
+const pokemonCardSlice = createSlice({
+  name: "card",
   initialState: {
     cards: [], // Liste des cartes Pokémon
     status: "idle", // 'idle' | 'loading' | 'succeeded' | 'failed'
@@ -41,4 +41,4 @@ const pokemonSlice = createSlice({
   },
 });
 
-export default pokemonSlice.reducer;
+export default pokemonCardSlice.reducer;

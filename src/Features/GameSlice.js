@@ -5,14 +5,14 @@ const gameSlice = createSlice({
   initialState: {
     turn: 1,
     phase: 'selecting', // or battle or finished
-    playerStarter: Math.round.random(),
+    playerStarter: Math.round(Math.random()),
     nbOfPokemonsByPlayer: 4,
     winner: null,
   },
   reducers: {
     nextTurn(state) {
       state.turn += 1;
-      state.playerStarter = Math.round.random();
+      state.playerStarter = Math.round(Math.random());
     },
     setPhase(state, action) {
       state.phase = action.payload;
