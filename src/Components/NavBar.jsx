@@ -8,16 +8,30 @@ export const NavBar = () => {
   return (
     <nav>
       <ul>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link to="/pokemon-list">Pokémon List</Link>
-          {stateOfGame === 'battle' ? <Link to="/battle">Bataille</Link> : null}
-        </li>
-        <li>
-          <Link to="/cart">Cart</Link>
-        </li>
+          {stateOfGame === 'name-selecting' ? 
+            <li>
+              <Link to="/">Accueil</Link>
+            </li> 
+          : null
+          }
+          {stateOfGame === 'card-selecting' ? 
+            <>
+              <li>
+                <Link to="/pokemon-list">Choix des pokemons</Link>
+              </li>
+              <li>
+                <Link to="/cart">Deck en cours</Link>
+              </li>
+            </>
+
+          : null
+          }
+          {stateOfGame === 'battle' ? 
+            <li>
+              <Link to="/battle">Bataille</Link>
+            </li> 
+          : null
+          }
       </ul>
     </nav>
   );

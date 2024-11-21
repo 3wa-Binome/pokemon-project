@@ -4,7 +4,7 @@ const gameSlice = createSlice({
   name: 'game',
   initialState: {
     turn: 1,
-    phase: 'selecting', // or battle or finished
+    phase: 'name-selecting', // name-selecting, card-selecting, battle or finished
     playerStarter: Math.round(Math.random()),
     nbOfPokemonsByPlayer: 4,
     winner: null,
