@@ -7,5 +7,5 @@ export default defineConfig({
   plugins: [
     react()
   ],
-  base: '/pokemon-project-github/' 
+  base: '/pokemon-project/' 
 })
