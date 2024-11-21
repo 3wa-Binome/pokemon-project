@@ -1,6 +1,6 @@
 import PokemonCard from './PokemonCard'
 import { useSelector } from 'react-redux'
-import '../css/Deck.css'
+import '../css/Player.css'
 
 export function Deck({ player }) {
     const { pokemons } = useSelector((state) => state.pokemon);

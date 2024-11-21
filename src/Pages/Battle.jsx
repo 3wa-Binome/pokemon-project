@@ -1,4 +1,4 @@
-import { Deck } from "../Components/Deck"
+import { Deck } from "../Components/Player"
 import { WindowAction } from "../Components/WindowAction"
 import { useSelector, useDispatch } from "react-redux";
 import '../css/Battle.css'
