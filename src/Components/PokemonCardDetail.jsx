@@ -19,7 +19,7 @@ const PokemonCardDetail = () => {
     
   useEffect(() => {
     checkPlayer();
-  }, []);
+  }, [cards]);
 
   useEffect(() => {
     if (id) {
@@ -29,7 +29,7 @@ const PokemonCardDetail = () => {
 
   function checkPlayer() {
     const cardOfFirstPlayer = cards.filter((card) => card.playerId === 0)
-    if(cardOfFirstPlayer.length >= maxPokemon - 1) {
+    if(cardOfFirstPlayer.length >= maxPokemon) {
       setPlayerSelecting(1);
     }
   }
