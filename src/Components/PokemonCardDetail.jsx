@@ -9,7 +9,7 @@ const PokemonCardDetail = () => {
   const [pokemonDetails, setPokemonDetails] = useState(null);
   const [playerSelecting, setPlayerSelecting] = useState(0);
   const [loading, setLoading] = useState(false);
-  const [errors, setErrors] = useState([]);
+  const [error, setError] = useState([]);
   const {cards} = useSelector((state) => state.card);
   const {maxPokemon, phase: gamePhase} = useSelector((state) => state.game);
 
@@ -36,15 +36,16 @@ const PokemonCardDetail = () => {
 
   const fetchPokemonDetails = async () => {
     setLoading(true);
+    setError(null); // Réinitialiser l'erreur à chaque nouvelle demande
     try {
       const response = await fetch(`https://api.tcgdex.net/v2/fr/cards/${id}`);
+      if (!response.ok) {
+        throw new Error('Détails du Pokémon introuvables.');
+      }
       const data = await response.json();
       setPokemonDetails(data);
     } catch (error) {
-      console.error(
-        "Erreur lors de la récupération des détails du Pokémon :",
-        error
-      );
+      setError(error.message);
     } finally {
       setLoading(false);
     }
@@ -52,11 +53,17 @@ const PokemonCardDetail = () => {
 
   if (loading) return <p>Chargement...</p>;
 
+  if (error) return <p>Erreur: {error}</p>;
+
   if (gamePhase !== 'card-selecting') {
-    return <><h1>Veuillez démarrer la partie</h1><Link to='/'>Démarrer</Link></>
+    return (
+      <>
+        <h1>Veuillez démarrer la partie</h1>
+        <Link to='/'>Démarrer</Link>
+      </>
+    );
   }
 
-  
   return (
     <div className="pokemon-card-detail">
       {
@@ -74,69 +81,44 @@ const PokemonCardDetail = () => {
             alt={pokemonDetails.name || "Pokemon"}
             className="pokemon-image"
           />
-          <p>
-            <strong>Illustrateur:</strong> {pokemonDetails.illustrator || "Non renseigné"}
-          </p>
-          <p>
-            <strong>Rareté:</strong> {pokemonDetails.rarity || "Non renseignée"}
-          </p>
-          <p>
-            <strong>Catégorie:</strong> {pokemonDetails.category || "Non renseignée"}
-          </p>
-          <p>
-            <strong>Set:</strong> {pokemonDetails.set?.name || "Non renseigné"}
-          </p>
-          <p>
-            <strong>Numéro dans le set:</strong>{" "}
-            {pokemonDetails.set?.cardCount?.official || "?"}/
-            {pokemonDetails.set?.cardCount?.total || "?"}
-          </p>
-          <p>
-            <strong>Types:</strong>{" "}
-            {pokemonDetails.types ? pokemonDetails.types.join(", ") : "Aucun type"}
-          </p>
-          <p>
-            <strong>HP:</strong> {pokemonDetails.hp || "Non renseigné"}
-          </p>
-          <p>
-            <strong>Stage:</strong> {pokemonDetails.stage || "Non renseigné"}
-          </p>
-  
-          {pokemonDetails.abilities && pokemonDetails.abilities.length > 0 && (
-            <>
-              <h3>Capacité spéciale:</h3>
+          <div className="pokemon-info">
+            <p><strong>Illustrateur:</strong> {pokemonDetails.illustrator || "Non renseigné"}</p>
+            <p><strong>Rareté:</strong> {pokemonDetails.rarity || "Non renseignée"}</p>
+            <p><strong>Catégorie:</strong> {pokemonDetails.category || "Non renseignée"}</p>
+            <p><strong>Set:</strong> {pokemonDetails.set?.name || "Non renseigné"}</p>
+            <p><strong>Numéro dans le set:</strong> {pokemonDetails.set?.cardCount?.official || "?"}/{pokemonDetails.set?.cardCount?.total || "?"}</p>
+            <p><strong>Types:</strong> {pokemonDetails.types ? pokemonDetails.types.join(", ") : "Aucun type"}</p>
+            <p><strong>HP:</strong> {pokemonDetails.hp || "Non renseigné"}</p>
+            <p><strong>Stage:</strong> {pokemonDetails.stage || "Non renseigné"}</p>
+          </div>
+
+          {pokemonDetails.abilities?.length > 0 && (
+            <div className="abilities">
+              <h3>Capacités spéciales:</h3>
               {pokemonDetails.abilities.map((ability, index) => (
-                <div key={index}>
-                  <p>
-                    <strong>{ability.name || "Nom inconnu"}</strong>: {ability.effect || "Effet non renseigné"}
-                  </p>
-                </div>
+                <p key={index}><strong>{ability.name}</strong>: {ability.effect || "Effet non renseigné"}</p>
               ))}
-            </>
+            </div>
           )}
-  
-          <h3>Attaque:</h3>
-          {pokemonDetails.attacks && pokemonDetails.attacks.length > 0 ? (
-            pokemonDetails.attacks.map((attack, index) => (
-              <div key={index}>
-                <p>
-                  <strong>{attack.name || "Nom inconnu"}</strong>: {attack.effect || "Effet non renseigné"}
-                </p>
-              </div>
-            ))
+
+          {pokemonDetails.attacks?.length > 0 ? (
+            <div className="attacks">
+              <h3>Attaques:</h3>
+              {pokemonDetails.attacks.map((attack, index) => (
+                <p key={index}><strong>{attack.name}</strong>: {attack.effect || "Effet non renseigné"}</p>
+              ))}
+            </div>
           ) : (
             <p>Aucune attaque disponible.</p>
           )}
-  
-          <h3>Faiblesses:</h3>
-          {pokemonDetails.weaknesses && pokemonDetails.weaknesses.length > 0 ? (
-            pokemonDetails.weaknesses.map((weakness, index) => (
-              <div key={index}>
-                <p>
-                  <strong>{weakness.type || "Type inconnu"} :</strong> {weakness.value || "Valeur non renseignée"}
-                </p>
-              </div>
-            ))
+
+          {pokemonDetails.weaknesses?.length > 0 ? (
+            <div className="weaknesses">
+              <h3>Faiblesses:</h3>
+              {pokemonDetails.weaknesses.map((weakness, index) => (
+                <p key={index}><strong>{weakness.type}:</strong> {weakness.value}</p>
+              ))}
+            </div>
           ) : (
             <p>Aucune faiblesse disponible.</p>
           )}
@@ -164,7 +146,7 @@ const PokemonCardDetail = () => {
         <p>Aucun détail disponible.</p>
       )}
     </div>
-  );  
+  );
 };
 
 export default PokemonCardDetail;
