@@ -7,7 +7,7 @@ export const fetchPokemonCards = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       const response = await axios.get(
-        "https://api.tcgdex.net/v2/fr/cards?id=like:hgss2&image=notnull:"
+        "https://api.tcgdex.net/v2/fr/cards?id=like:base&image=notnull:"
       );
       return response.data; // Les données des cartes Pokémon
     } catch (error) {
