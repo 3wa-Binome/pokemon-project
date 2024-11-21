@@ -13,6 +13,7 @@ const gameSlice = createSlice({
     nextTurn(state) {
       state.turn += 1;
       state.playerStarter = Math.round(Math.random());
+      state.nbOfPlayerWhoPlayedOnTheTurn = 0;
     },
     setPhase(state, action) {
       state.phase = action.payload;
@@ -23,8 +24,14 @@ const gameSlice = createSlice({
     setWinner(state, action) {
       state.winner = action.payload;
     },
+    nextPlayer(state) {
+      state.nbOfPlayerWhoPlayedOnTheTurn += 1;
+    },
+    resetBattle(state) {
+      state.phase = 'selecting';
+    }
   },
 });
 
-export const { nextTurn, setPhase, setNbOfPokemonsByPlayer, setWinner } = gameSlice.actions;
+export const { nextTurn, setPhase, setNbOfPokemonsByPlayer, setWinner, nextPlayer, resetBattle } = gameSlice.actions;
 export default gameSlice.reducer;
