@@ -15,7 +15,7 @@ export function Battle() {
 
     }, [])
 
-    if (gamePhase !== 'card-selecting') {
+    if (gamePhase !== 'battle') {
         return <><h1>Veuillez démarrer la partie</h1><Link to='/'>Démarrer</Link></>
     }
 

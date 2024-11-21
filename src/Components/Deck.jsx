@@ -1,7 +1,7 @@
 import Card from "./Card";
 import '../css/Deck.css';
 import { useDispatch } from "react-redux";
-import {removeCard} from "../Features/DeckSlice";
+import {removeCard} from "../Features/CardSlice";
 const Deck = ({ id, image, name }) => {
     const dispatch = useDispatch(); 
     return (

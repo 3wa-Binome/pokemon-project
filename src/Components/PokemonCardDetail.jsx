@@ -1,22 +1,38 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import "../css/PokemonCardDetail.css";
 import { useDispatch, useSelector } from "react-redux";
-import {addCard} from "../Features/DeckSlice";
+import {addCard} from "../Features/CardSlice";
 
 const PokemonCardDetail = () => {
   const { id } = useParams();
   const [pokemonDetails, setPokemonDetails] = useState(null);
+  const [playerSelecting, setPlayerSelecting] = useState(0);
   const [loading, setLoading] = useState(false);
-  const gamePhase = useSelector((state) => state.game.phase);
+  const [errors, setErrors] = useState([]);
+  const {cards} = useSelector((state) => state.card);
+  const {maxPokemon, phase: gamePhase} = useSelector((state) => state.game);
 
   const dispatch = useDispatch();
+
+  console.log(cards)
+    
+  useEffect(() => {
+    checkPlayer();
+  }, []);
 
   useEffect(() => {
     if (id) {
       fetchPokemonDetails();
     }
   }, [id]);
+
+  function checkPlayer() {
+    const cardOfFirstPlayer = cards.filter((card) => card.playerId === 0)
+    if(cardOfFirstPlayer.length >= maxPokemon - 1) {
+      setPlayerSelecting(1);
+    }
+  }
 
   const fetchPokemonDetails = async () => {
     setLoading(true);
@@ -43,6 +59,13 @@ const PokemonCardDetail = () => {
   
   return (
     <div className="pokemon-card-detail">
+      {
+        cards.length >= maxPokemon * 2 ? 
+          <div className="error">
+            Vos decks sont déjà remplis
+          </div>
+        : <></>
+      }
       {pokemonDetails ? (
         <div className="pokemon-details">
           <h2>{pokemonDetails.name || "Nom inconnu"}</h2>
@@ -124,7 +147,18 @@ const PokemonCardDetail = () => {
           <p>
             <strong>Mis à jour:</strong> {pokemonDetails.updated || "Non renseignée"}
           </p>
-          <button onClick={() => dispatch(addCard(pokemonDetails))}>Ajouter au deck</button>
+          <button onClick={() => {
+            checkPlayer();
+            const cardToAdd = {
+              ...pokemonDetails, // Copie toutes les propriétés de pokemonDetails
+              playerId: playerSelecting, // Ajoute ou remplace la propriété playerId
+            };
+            cards.length >= maxPokemon * 2 ?
+            null
+            :  dispatch(addCard(cardToAdd))
+          }}>
+            Ajouter au Deck
+          </button>
         </div>
       ) : (
         <p>Aucun détail disponible.</p>

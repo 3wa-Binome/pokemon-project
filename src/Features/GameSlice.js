@@ -6,7 +6,7 @@ const gameSlice = createSlice({
     turn: 1,
     phase: 'name-selecting', // name-selecting, card-selecting, battle or finished
     playerStarter: Math.round(Math.random()),
-    nbOfPokemonsByPlayer: 4,
+    maxPokemon: 4,
     winner: null,
   },
   reducers: {
@@ -18,8 +18,8 @@ const gameSlice = createSlice({
     setPhase(state, action) {
       state.phase = action.payload;
     },
-    setNbOfPokemonsByPlayer(state, action) {
-      state.nbOfPokemonsByPlayer = action.payload;
+    setMaxPokemon(state, action) {
+      state.maxPokemon = action.payload;
     },
     setWinner(state, action) {
       state.winner = action.payload;
@@ -33,5 +33,5 @@ const gameSlice = createSlice({
   },
 });
 
-export const { nextTurn, setPhase, setNbOfPokemonsByPlayer, setWinner, nextPlayer, resetBattle } = gameSlice.actions;
+export const { nextTurn, setPhase, setMaxPokemon, setWinner, nextPlayer, resetBattle } = gameSlice.actions;
 export default gameSlice.reducer;

@@ -5,14 +5,14 @@ import playerSlice from "../Features/PlayerSlice";
 import pokemonSlice from "../Features/PokemonSlice";
 import attackSlice from "../Features/AttackSlice";
 import itemSlice from "../Features/ItemSlice";
-import deckSlice from "../Features/DeckSlice";
+import cardSlice from "../Features/CardSlice";
 
 export const store = configureStore({
   reducer: {
     pokemonCards: pokemonCardSlice,
     game: gameSlice,
     player: playerSlice,
-    deck: deckSlice,
+    card: cardSlice,
     item: itemSlice,
     pokemon: pokemonSlice,
     attack: attackSlice,
