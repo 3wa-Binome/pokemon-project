@@ -7,8 +7,8 @@ Bienvenue dans le **Pokémon Project**, une application web interactive conçue 
 ---
 
 ## 👥 Auteurs
-**Julien Loiseau** - Développeur full stack
-**Bastien Raoult** - Développeur full stack
+- **Julien Loiseau** - Développeur full stack
+- **Bastien Raoult** - Développeur full stack
 
 ---
 
