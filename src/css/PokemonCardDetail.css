@@ -1,0 +1,126 @@
+/* Style global pour la page de détail du Pokémon */
+.pokemon-card-detail {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  background-color: #f4f4f9; /* Couleur de fond légèrement plus claire */
+  min-height: 100vh;
+  transition: background-color 0.3s ease;
+}
+
+/* Conteneur principal des détails du Pokémon */
+.pokemon-details {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  padding: 40px; 
+  max-width: 900px;
+  width: 100%;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Titre */
+.pokemon-details h2 {
+  font-size: 2.2rem;
+  color: #2c3e50; /* Couleur légèrement plus foncée pour plus de contraste */
+  margin-bottom: 25px;
+  font-weight: 700; /* Met en valeur le titre */
+}
+
+/* Image du Pokémon */
+.pokemon-image {
+  width: 250px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 30px;
+  transition: transform 0.3s ease;
+}
+
+/* Effet de zoom sur l'image */
+.pokemon-image:hover {
+  transform: scale(1.05); /* Légère animation au survol de l'image */
+}
+
+/* Paragraphes généraux */
+.pokemon-details p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #555;
+  margin: 15px 0;
+  font-weight: 400;
+  transition: color 0.3s ease;
+}
+
+/* En-têtes des sous-sections */
+.pokemon-details h3 {
+  font-size: 1.4rem;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  color: #2c3e50;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Mise en valeur des informations importantes */
+.pokemon-details strong {
+  color: #e74c3c; /* Rouge plus vif pour les informations importantes */
+  font-weight: 600;
+}
+
+/* Section des capacités spéciales */
+.pokemon-details .abilities {
+  margin-top: 20px;
+  text-align: left;
+  background-color: #ecf0f1; /* Couleur de fond différente pour séparer cette section */
+  padding: 15px;
+  border-radius: 8px;
+}
+
+/* Liste des attaques et des faiblesses */
+.pokemon-details div {
+  margin-bottom: 15px;
+  font-size: 1rem;
+  color: #444;
+  transition: all 0.3s ease;
+}
+
+.pokemon-details div:hover {
+  background-color: #c5c5c5;
+  color: #fff;
+  border-radius: 8px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+/* Section de loading */
+.pokemon-card-detail p {
+  font-size: 1.2rem;
+  color: #888;
+  font-style: italic;
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Responsive: Ajustement pour petits écrans */
+@media (max-width: 768px) {
+  .pokemon-details {
+    padding: 20px;
+    max-width: 90%;
+  }
+
+  .pokemon-image {
+    width: 250px;
+    height: 250px;
+  }
+
+  .pokemon-details h2 {
+    font-size: 1.8rem;
+  }
+
+  .pokemon-details p, .pokemon-details h3 {
+    font-size: 1rem;
+  }
+}

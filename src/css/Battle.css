@@ -1,0 +1,7 @@
+.battle-screen {
+    display: flex;
+    justify-content: space-between;
+    height: 60vh;
+    max-width: 1000px;
+    margin: 0 auto;
+}
