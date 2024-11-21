@@ -1,4 +1,4 @@
-import { Deck } from "../Components/Player"
+import { Player } from "../Components/Player"
 import { WindowAction } from "../Components/WindowAction"
 import { useSelector, useDispatch } from "react-redux";
 import '../css/Battle.css'
@@ -16,8 +16,8 @@ export function Battle() {
     return (
         <>
             <div className="battle-screen">
-                <Deck player={0} />
-                <Deck player={1} />
+                <Player player={0} />
+                <Player player={1} />
             </div>
             <WindowAction/>
         </>

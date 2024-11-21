@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import Deck from "../Components/Player";
+import Deck from "../Components/Deck";
 
 function Cart() {
   const { deck } = useSelector((state) => state.deck);

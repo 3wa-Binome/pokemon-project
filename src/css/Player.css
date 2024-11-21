@@ -1,4 +1,4 @@
-.deck {
+.player {
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
@@ -7,28 +7,28 @@
     height: 60%;
 }
 
-.deck > .pokemon-card {
+.player > .card {
     max-width: 20%;
     border-radius: 10px;
 }
 
-.deck > .pokemon-card.active-card {
+.player > .card.active-card {
     order: 1;
 }
 
-.deck > .pokemon-card {
+.player > .card {
     width: 20%;
     border-radius: 10px;
 }
 
-/* .deck:nth-child(1) {
+/* .player:nth-child(1) {
     transform: rotate(90deg);
 }
 
-.deck:nth-child(2) {
+.player:nth-child(2) {
     transform: rotate(-90deg);
 } */
 
-.deck > .pokemon-card:hover img {
+.player > .card:hover img {
     transform: none;
 }

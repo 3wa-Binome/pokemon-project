@@ -1,18 +1,18 @@
-import PokemonCard from './PokemonCard'
 import { useSelector } from 'react-redux'
 import '../css/Player.css'
+import Card from './Card';
 
-export function Deck({ player }) {
+export function Player({ player }) {
     const { pokemons } = useSelector((state) => state.pokemon);
     const pokemonsOfPlayer = pokemons.filter((pokemon) => pokemon.playerId === player);
     const urlBackCard = '/back-card.png';
 
     return (
-        <div className='deck'>
+        <div className='player'>
             {
                 pokemonsOfPlayer && pokemonsOfPlayer.map((pokemon) => {
                     return (
-                        <PokemonCard
+                        <Card
                             key={pokemon.pokemonId}
                             id={pokemon.pokemonId}
                             name={pokemon.name}
