@@ -15,6 +15,9 @@ export const NavBar = () => {
           <Link to="/pokemon-list">Pokémon List</Link>
           {stateOfGame === 'battle' ? <Link to="/battle">Bataille</Link> : null}
         </li>
+        <li>
+          <Link to="/cart">Cart</Link>
+        </li>
       </ul>
     </nav>
   );

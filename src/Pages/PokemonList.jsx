@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchPokemonCards } from "../Features/PokemonCardSlice";
-import PokemonCard from "../Components/PokemonCard";
+import AllPokemonCard from "../Components/AllPokemonCard";
 import "../css/PokemonList.css";
 
 function PokemonList() {
@@ -26,7 +26,7 @@ function PokemonList() {
     <div>
       <div className="pokemon-list">
         {cards.map((pokemon) => (
-          <PokemonCard
+          <AllPokemonCard
             key={pokemon.id}
             id={pokemon.id}
             name={pokemon.name}
