@@ -11,7 +11,7 @@ import Cart from "./Pages/Cart";
 const App = () => {
   return (
     <Provider store={store}>
-      <Router>
+      <Router basename="/pokemon-project">
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
