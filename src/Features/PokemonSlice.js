@@ -3,16 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const pokemonSlice = createSlice({
   name: 'pokemon',
   initialState: {
-    pokemons: [
-      {pokemonId: 1, playerId: 0, isAlive: true, isFighting: true, name: 'Pikachu', image: 'https://assets.tcgdex.net/en/swsh/swsh3/136'},
-      {pokemonId: 2, playerId: 0, isAlive: true, isFighting: true, name: 'Pikachu', image: 'https://assets.tcgdex.net/en/swsh/swsh3/136'},
-      {pokemonId: 3, playerId: 0, isAlive: true, isFighting: true, name: 'Pikachu', image: 'https://assets.tcgdex.net/en/swsh/swsh3/136'},
-      {pokemonId: 4, playerId: 0, isAlive: true, isFighting: true, name: 'Pikachu', image: 'https://assets.tcgdex.net/en/swsh/swsh3/136'},
-      {pokemonId: 1, playerId: 1, isAlive: true, isFighting: true, name: 'Pikachu', image: 'https://assets.tcgdex.net/en/swsh/swsh3/136'},
-      {pokemonId: 2, playerId: 1, isAlive: true, isFighting: true, name: 'Pikachu', image: 'https://assets.tcgdex.net/en/swsh/swsh3/136'},
-      {pokemonId: 3, playerId: 1, isAlive: true, isFighting: true, name: 'Pikachu', image: 'https://assets.tcgdex.net/en/swsh/swsh3/136'},
-      {pokemonId: 4, playerId: 1, isAlive: true, isFighting: true, name: 'Pikachu', image: 'https://assets.tcgdex.net/en/swsh/swsh3/136'}
-    ], // [{ pokemonId: (valeur qui s'incrmente), playerId: 1 , isAlive: true, isFighting: true ,name: 'Pikachu', image: xx, stats: [hpInit: 100, hp: 50, type: 'normal', ...], apiTypes: [] }]
+    pokemons: [], // [{ pokemonId: (valeur qui s'incrmente), playerId: 1 , isAlive: true, isFighting: true ,name: 'Pikachu', image: xx, stats: [hpInit: 100, hp: 50, type: 'normal', ...], apiTypes: [] }]
   },
   reducers: {
     addPokemon(state, action) {

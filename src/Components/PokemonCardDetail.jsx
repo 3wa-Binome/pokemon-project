@@ -66,13 +66,6 @@ const PokemonCardDetail = () => {
 
   return (
     <div className="pokemon-card-detail">
-      {
-        cards.length >= maxPokemon * 2 ? 
-          <div className="error">
-            Vos decks sont déjà remplis
-          </div>
-        : <></>
-      }
       {pokemonDetails ? (
         <div className="pokemon-details">
           <h2>{pokemonDetails.name || "Nom inconnu"}</h2>
@@ -141,6 +134,13 @@ const PokemonCardDetail = () => {
           }}>
             Ajouter au Deck
           </button>
+          {
+        cards.length >= maxPokemon * 2 ? 
+          <div className="error">
+            Vos decks sont déjà remplis
+          </div>
+        : <></>
+      }
         </div>
       ) : (
         <p>Aucun détail disponible.</p>

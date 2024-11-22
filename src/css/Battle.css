@@ -1,7 +1,32 @@
+/* Battle.css */
+
+/* Conteneur principal de l'écran de combat */
 .battle-screen {
     display: flex;
-    justify-content: space-between;
-    height: 60vh;
-    max-width: 1000px;
-    margin: 0 auto;
-}
+    justify-content: space-between; /* Sépare les deux joueurs */
+    align-items: center;
+    gap: 20px; /* Espacement entre les joueurs */
+    padding: 20px;
+    background-color: #f3f4f6; /* Fond léger pour contraster avec les cartes */
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Zone de chaque joueur */
+  .battle-screen .player {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px; /* Espacement entre les cartes */
+  }
+  
+  
+  /* Adaptation pour petits écrans */
+  @media (max-width: 768px) {
+    .battle-screen {
+      flex-direction: column;
+      gap: 15px;
+    }
+  }
+  
