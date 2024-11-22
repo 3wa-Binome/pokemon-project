@@ -14,8 +14,6 @@ const PokemonCardDetail = () => {
   const {maxPokemon, phase: gamePhase} = useSelector((state) => state.game);
 
   const dispatch = useDispatch();
-
-  console.log(cards)
     
   useEffect(() => {
     checkPlayer();

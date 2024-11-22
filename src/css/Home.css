@@ -1,81 +1,113 @@
 /* Styles spécifiques à la page Home */
 .home-page {
-    font-family: 'Arial', sans-serif;
-    background-color: #f4f4f9;
-    color: #333;
-    padding: 20px;
-    margin: 0 auto;
-    max-width: 600px;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    text-align: center;
-  }
-  
-  /* Titres */
-  .home-page h1 {
-    font-size: 2rem;
-    color: #2c3e50;
-    margin-bottom: 20px;
-  }
-  
-  /* Boutons */
-  .home-page button {
-    background-color: #3498db;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .home-page button:hover {
-    background-color: #2980b9;
-  }
-  
-  /* Formulaire */
-  .home-page form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-  }
-  
-  .home-page label {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    font-size: 1rem;
-    color: #34495e;
-  }
-  
-  .home-page input[type="text"] {
-    width: 100%;
-    padding: 8px;
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-top: 5px;
-  }
-  
-  .home-page input[type="text"]:focus {
-    border-color: #3498db;
-    outline: none;
-    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
-  }
-  
-  /* Lien Suivant */
-  .home-page a {
-    display: inline-block;
-    text-decoration: none;
-    color: #3498db;
-    font-size: 1rem;
-    font-weight: bold;
-    margin-top: 20px;
-    transition: color 0.3s ease, text-decoration 0.3s ease;
-  }
-  
-  .home-page a:hover {
-    color: #2980b9;
-    text-decoration: underline;
-  }
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f9;
+  color: #333;
+  padding: 20px;
+  margin: 0 auto;
+  max-width: 600px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* Titres */
+.home-page h1 {
+  font-size: 2rem;
+  color: #2c3e50;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+/* Boutons */
+.home-page button {
+  background-color: #3498db;
+  color: #fff;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
+  max-width: 250px;
+  margin: 10px auto;
+}
+
+/* Hover pour les boutons */
+.home-page button:hover {
+  background-color: #2980b9;
+}
+
+/* Formulaire */
+.home-page form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 15px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Labels */
+.home-page label {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-size: 1rem;
+  color: #34495e;
+  text-align: left;
+  margin-bottom: 5px;
+}
+
+/* Champs de texte */
+.home-page input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-top: 5px;
+  box-sizing: border-box;
+}
+
+/* Focus sur les champs de texte */
+.home-page input[type="text"]:focus {
+  border-color: #3498db;
+  outline: none;
+  box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+}
+
+/* Lien Suivant */
+.home-page a {
+  display: inline-block;
+  text-decoration: none;
+  color: #3498db;
+  font-size: 1rem;
+  font-weight: bold;
+  margin-top: 20px;
+  transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+/* Hover sur le lien */
+.home-page a:hover {
+  color: #2980b9;
+  text-decoration: underline;
+}
+
+/* Section des erreurs */
+.home-page .error {
+  background-color: #e74c3c;
+  color: white;
+  padding: 15px;
+  border-radius: 5px;
+  margin-top: 20px;
+  font-size: 1rem;
+  text-align: left;
+}
+
+.home-page .error p {
+  margin: 0;
+  font-weight: bold;
+}
