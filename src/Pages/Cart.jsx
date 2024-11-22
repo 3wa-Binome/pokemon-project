@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { setPhase } from "../Features/GameSlice";
 import Deck from "../Components/Deck";
 import { Link } from "react-router-dom";
+import '../css/Cart.css';
 
 function Cart() {
   const dispatch = useDispatch();

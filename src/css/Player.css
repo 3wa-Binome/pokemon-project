@@ -1,34 +1,83 @@
+/* Conteneur principal du joueur */
 .player {
     display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    margin: 15px;
+    border: 3px solid transparent;
+    border-radius: 15px;
+    background: linear-gradient(to bottom, #ffffff, #f0f0f0);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.player:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Titre du joueur */
+.player-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #333;
+    text-transform: uppercase;
+}
+
+/* Deck des cartes */
+.player-deck {
+    display: flex;
     justify-content: center;
-    align-items: flex-end;
-    height: 60%;
+    flex-wrap: wrap;
+    gap: 15px;
 }
 
-.player > .card {
-    max-width: 20%;
+/* Styles pour une carte */
+.player .card {
+    width: 120px;
+    height: 160px;
+    border: 2px solid #ddd;
     border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.player > .card.active-card {
-    order: 1;
+.player .card:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
-.player > .card {
-    width: 20%;
-    border-radius: 10px;
+/* Images dans les cartes */
+.player .card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
 }
 
-/* .player:nth-child(1) {
-    transform: rotate(90deg);
+/* Cartes retournées */
+.player .card.back-card {
+    background: url('/back-card.png') center/cover no-repeat;
 }
 
-.player:nth-child(2) {
-    transform: rotate(-90deg);
-} */
+/* Joueur spécifique */
+.player1 {
+    border-color: #4caf50; /* Couleur du joueur 1 */
+}
 
-.player > .card:hover img {
-    transform: none;
+.player2 {
+    border-color: #f44336; /* Couleur du joueur 2 */
+}
+
+/* Message si aucune carte */
+.no-cards {
+    font-size: 1rem;
+    color: #999;
+    margin-top: 20px;
 }
