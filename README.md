@@ -50,7 +50,7 @@ pokemon-project/
 │   ├── pages/            # Pages principales
 │   ├── App/              # Store Redux
 │   ├── App.jsx           # Composant des routes
-│   └── index.jsx         # Point d'entrée de l'application
+│   └── main.jsx         # Point d'entrée de l'application
 ├── .gitignore            # Fichiers à ignorer par Git
 ├── package.json          # Dépendances et scripts npm
 ├── vite.config.js        # Configuration de Vite
