@@ -18,13 +18,14 @@ const Home = () => {
     }
     const firstPlayer = {id: 0, name: e.target[0].value};
     const secondPlayer = {id: 0, name: e.target[1].value};
-
+    
     dispatch(addPlayer(firstPlayer));
     dispatch(addPlayer(secondPlayer));
     dispatch(setPhase('card-selecting'))
     setErrors([]);
     setAction('cards');
   }
+  {console.log("🚀 ~ Home ~ errors:", errors)}
 
   return (
     <div className="home-page">
@@ -58,7 +59,7 @@ const Home = () => {
         : <></>
       }
       {
-        errors ? 
+        errors.length != 0 ? 
           <div className="error">
             {errors.map((error) => {
               return <p key={error}>{error}</p>

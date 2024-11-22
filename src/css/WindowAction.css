@@ -1,8 +1,138 @@
+/* Conteneur principal de la fenêtre d'action */
 .windows-action {
-    width: 90%;
-    margin: 1rem auto;
-    padding: 2rem;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
-}
+    background-color: #f9f9f9; /* Fond clair pour un effet doux et moderne */
+    border-radius: 12px; /* Coins encore plus arrondis pour une touche plus douce */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Ombre plus marquée pour une profondeur accrue */
+    padding: 30px;
+    width: 450px; /* Augmenter la largeur pour plus d'espace */
+    margin: 20px auto; /* Centrer horizontalement avec un peu d'espace autour */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.3s ease-in-out; /* Transition pour l'effet de zoom */
+  }
+  
+  .windows-action:hover {
+    transform: scale(1.02); /* Légère augmentation au survol pour un effet de zoom */
+  }
+  
+  /* Titres des sections */
+  .windows-action h2 {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  /* Boutons principaux */
+  .windows-action button {
+    background-color: #3498db; /* Bleu vif pour un contraste */
+    color: white;
+    border: none;
+    padding: 15px 25px; /* Plus de padding pour des boutons plus visibles */
+    border-radius: 8px; /* Coins arrondis */
+    font-size: 1.1rem;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre douce pour le bouton */
+    transition: background-color 0.3s, transform 0.2s ease-in-out;
+  }
+  
+  /* Changement au survol des boutons */
+  .windows-action button:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px); /* Effet de surélévation au survol */
+  }
+  
+  /* Effet au clic */
+  .windows-action button:active {
+    background-color: #1f5e8b;
+    transform: translateY(2px); /* Effet de pression au clic */
+  }
+  
+  /* Style des boutons quand ils sont désactivés */
+  .windows-action button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+  }
+  
+  /* Fenêtre de log des actions */
+  .log-content {
+    max-height: 200px;
+    overflow-y: auto;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-family: 'Courier New', monospace;
+    font-size: 1rem;
+    color: #444;
+  }
+  
+  /* Pour chaque action dans la liste */
+  .action-list button,
+  .attack-list button {
+    background-color: #3498db; /* Utiliser une couleur de fond bleue pour toutes les actions */
+    color: white;
+    border: none;
+    padding: 14px 20px; /* Espacement plus grand */
+    margin: 10px 0;
+    font-size: 1.2rem;
+    text-align: center;
+    width: 100%;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s ease-in-out;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1); /* Ombre douce pour les boutons */
+  }
+  
+  /* Hover et active pour les boutons d'action */
+  .action-list button:hover,
+  .attack-list button:hover {
+    background-color: #2980b9;
+    transform: scale(1.05); /* Effet d'agrandissement au survol */
+  }
+  
+  /* Changement de couleur et effet lors du clic */
+  .action-list button:active,
+  .attack-list button:active {
+    background-color: #1f5e8b;
+    transform: scale(1);
+  }
+  
+  /* Liste des actions et des attaques */
+  .action-list, .attack-list {
+    width: 100%;
+    padding: 0;
+    margin-top: 15px;
+  }
+  
+  .action-list li, .attack-list li {
+    list-style: none;
+    width: 100%;
+  }
+  
+  /* Bordure et séparation entre les étapes */
+  .windows-action .step-divider {
+    height: 1px;
+    background-color: #ddd;
+    margin: 20px 0;
+  }
+  
+  /* Indicateur de progression ou de statut */
+  .windows-action .status-indicator {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  .status-indicator span {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #888;
+  }
+  

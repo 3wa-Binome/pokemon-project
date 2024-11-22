@@ -35,7 +35,7 @@ export function Player({ player }) {
   return (
     <div className={`player player${player + 1}`}>
       <h2>{currentPlayer?.name}</h2>
-      <div className="player-deck">
+      <div className="player-deck" >
         {playerDeck.length > 0 ? (
           playerDeck.map((pokemon) => (
             <Card
