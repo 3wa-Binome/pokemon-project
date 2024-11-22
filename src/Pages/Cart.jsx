@@ -19,78 +19,63 @@ function Cart() {
     if (checked[0] && checked[1]) {
       dispatch(setPhase('battle'))
     }
-  }, [checked])
+  }, [checked]);
 
   if (gamePhase !== 'card-selecting') {
-
-    if(checked[0] && checked[1]) {
+    if (checked[0] && checked[1]) {
       return (
-        <>
-          <h1>Prêt pour la bataille?</h1>
-          <Link to='/battle'>Place au combat!</Link>
-        </>
+        <div className="cart-container">
+          <h1 className="title">Prêt pour la bataille?</h1>
+          <Link className="start-battle" to='/battle'>Place au combat!</Link>
+        </div>
       )
     }
-    return <><h1>Veuillez démarrer la partie</h1><Link to='/'>Démarrer</Link></>
+    return (
+      <div className="cart-container">
+        <h1 className="title">Veuillez démarrer la partie</h1>
+        <Link className="start-game" to='/'>Démarrer</Link>
+      </div>
+    );
   }
 
   return (
-    <div>
-      <h2>Deck de {players[0].name}</h2>
-      {
-        checked[0] ?
-          <button onClick={() => setChecked((prev) => {
+    <div className="cart-container">
+      <div className="deck-container">
+        <h2 className="deck-title">Deck de {players[0].name}</h2>
+        <button 
+          className="deck-button" 
+          onClick={() => setChecked((prev) => {
             const newChecked = [...prev];
-            newChecked[0] = false;
+            newChecked[0] = !newChecked[0];
             return newChecked;
-          })}>
-            Annuler
-          </button>
-          : <button onClick={() => setChecked((prev) => {
-            const newChecked = [...prev];
-            newChecked[0] = true;
-            return newChecked;
-          })}>
-            Valider
-          </button>
-      }
-      <div className="deck">
-        {firstDeck.map((card) => (
-          <Deck
-            key={card.id}
-            id={card.id}
-            image={card.image}
-            name={card.name}
-          />
-        ))}
+          })}
+        >
+          {checked[0] ? 'Annuler' : 'Valider'}
+        </button>
+        <div className="deck">
+          {firstDeck.map((card) => (
+            <Deck key={card.id} id={card.id} image={card.image} name={card.name} />
+          ))}
+        </div>
       </div>
-      <h2>Deck de {players[1].name}</h2>
-      {
-        checked[1] ?
-          <button onClick={() => setChecked((prev) => {
+
+      <div className="deck-container">
+        <h2 className="deck-title">Deck de {players[1].name}</h2>
+        <button 
+          className="deck-button" 
+          onClick={() => setChecked((prev) => {
             const newChecked = [...prev];
-            newChecked[1] = false;
+            newChecked[1] = !newChecked[1];
             return newChecked;
-          })}>
-            Annuler
-          </button>
-          : <button onClick={() => setChecked((prev) => {
-            const newChecked = [...prev];
-            newChecked[1] = true;
-            return newChecked;
-          })}>
-            Valider
-          </button>
-      }
-      <div className="deck">
-        {secondDeck.map((card) => (
-          <Deck
-            key={card.id}
-            id={card.id}
-            image={card.image}
-            name={card.name}
-          />
-        ))}
+          })}
+        >
+          {checked[1] ? 'Annuler' : 'Valider'}
+        </button>
+        <div className="deck">
+          {secondDeck.map((card) => (
+            <Deck key={card.id} id={card.id} image={card.image} name={card.name} />
+          ))}
+        </div>
       </div>
     </div>
   );
